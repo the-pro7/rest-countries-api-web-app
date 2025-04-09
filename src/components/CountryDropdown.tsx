@@ -7,7 +7,7 @@ interface CountryDropdownProps {
   handleRegionChange: (value: string) => void;
 }
 
-const filterRegions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+const filterRegions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "Polar", "Antarctic Ocean"];
 
 export default function CountryDropdown({
   region,
