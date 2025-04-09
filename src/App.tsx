@@ -6,7 +6,6 @@ import data from "../db/data.json";
 import { useSearchParams } from "react-router";
 import NotFound from "./assets/notfound.svg";
 import useInfiniteQuery from "./hooks/InfiniteQuery";
-import { log } from "../helpers/helpers";
 // import { log } from "../helpers/helpers";
 
 function App() {
