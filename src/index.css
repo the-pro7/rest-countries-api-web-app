@@ -1,0 +1,57 @@
+/* index.css or globals.css */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import "tailwindcss";
+
+/*  For dark mode*/
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+*/
+
+:root {
+  color-scheme: light dark;
+
+  /* Custom color variables */
+  --color-dark-blue: hsl(209, 23%, 22%);
+  --color-very-dark-blue-bg: hsl(207, 26%, 17%);
+  --color-very-dark-blue-txt: hsl(200, 15%, 8%);
+  --color-dark-gray: hsl(0, 0%, 52%);
+  --color-very-light-gray: hsl(0, 0%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  body {
+    font-family: "Nunito Sans", sans-serif;
+    background-color: var(--color-very-light-gray);
+    color: var(--color-very-dark-blue-txt);
+  }
+}
+
+.dark {
+  body {
+    background-color: var(--color-very-dark-blue-bg);
+    color: var(--color-white);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark {
+    body {
+      background-color: var(--color-very-dark-blue-bg);
+      color: var(--color-white);
+    }
+  }
+}
