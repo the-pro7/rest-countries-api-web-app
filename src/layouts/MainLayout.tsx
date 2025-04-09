@@ -38,7 +38,7 @@ export default function MainLayout() {
   // End State
 
   return (
-    <div>
+    <div className="relative h-screen">
       <header>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       </header>

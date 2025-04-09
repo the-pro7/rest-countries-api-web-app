@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import data from "../../db/data.json";
 import { numberFormatter, getBorderCountries } from "../../helpers/helpers";
@@ -28,7 +28,7 @@ export default function CountryDetail() {
         <IoIosArrowRoundBack className="text-inherit text-2xl" />
         Back
       </button>
-      <div className="mt-16 flex flex-col items-start md:items-center justify-center gap-7 md:gap-22 lg:flex-row">
+      <div className="mt-16 flex flex-col items-start md:items-center justify-center gap-7 md:gap-22 lg:flex-row mb-10">
         {/* Flag */}
         <div className="md:w-full lg:w-[850px] md:h-[350px]">
           <img src={country?.flag} className="h-full w-full object-cover" />
@@ -88,8 +88,8 @@ export default function CountryDetail() {
           <div className="capitalize mt-8 flex flex-col md:flex-row gap-3 items-start md:items-baseline">
             <p>border countries:</p>
             <div className="flex flex-wrap gap-3 max-w-[530px]">
-            {country?.borders && country?.borders.length > 0
-              ? getBorderCountries(
+              {country?.borders && country?.borders.length > 0 ? (
+                getBorderCountries(
                   country?.borders as string[],
                   data as CountryType[]
                 ).map((border, index) => (
@@ -100,10 +100,20 @@ export default function CountryDetail() {
                     {border.name}
                   </span>
                 ))
-              : <span>None</span>}
+              ) : (
+                <span>None</span>
+              )}
             </div>
           </div>
         </div>
+      </div>
+      {/* Attributions */}
+      {/* For the sake of the design */}
+      <div className="flex flex-col md:flex-row gap-2 items-center justify-center absolute bottom-0 left-0 right-0  bg-gray-100 text-[var(--color-dark-blue)] dark:bg-[var(--color-dark-blue)] dark:text-white">
+        <p>Challenge by: <Link to="https://www.frontendmentor.io/" target="_blank" className="text-blue-500 underline">Frontend Mentor</Link></p>
+        <p>
+          Built by: <Link to="https://github.com/the-pro7" target="_blank" className="text-blue-500 underline">Emmanuel Opoku-Ameyaw</Link>
+        </p>
       </div>
     </div>
   );
